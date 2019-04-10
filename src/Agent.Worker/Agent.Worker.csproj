@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <TargetFramework>dotnet-runtime-3.0.0-preview3-27503-5</TargetFramework>
     <OutputType>Exe</OutputType>
     <RuntimeIdentifiers>win-x64;win-x86;linux-x64;linux-arm;rhel.6-x64;osx-x64</RuntimeIdentifiers>
     <TargetLatestRuntimePatch>true</TargetLatestRuntimePatch>
@@ -37,7 +37,7 @@
   <PropertyGroup Condition="'$([System.Runtime.InteropServices.RuntimeInformation]::IsOSPlatform($([System.Runtime.InteropServices.OSPlatform]::Windows)))' == 'true' AND '$(Configuration)' == 'Debug' AND '$(PackageRuntime)' == 'win-x86'">
     <DefineConstants>OS_WINDOWS;X86;DEBUG;TRACE</DefineConstants>
   </PropertyGroup>
-  
+
   <PropertyGroup Condition="'$([System.Runtime.InteropServices.RuntimeInformation]::IsOSPlatform($([System.Runtime.InteropServices.OSPlatform]::OSX)))' == 'true'">
     <DefineConstants>OS_OSX;X64;TRACE</DefineConstants>
   </PropertyGroup>
@@ -62,5 +62,8 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$([System.Runtime.InteropServices.RuntimeInformation]::IsOSPlatform($([System.Runtime.InteropServices.OSPlatform]::Linux)))' == 'true' AND '$(Configuration)' == 'Debug' AND '$(PackageRuntime)' == 'linux-arm'">
     <DefineConstants>OS_LINUX;ARM;DEBUG;TRACE</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$([System.Runtime.InteropServices.RuntimeInformation]::IsOSPlatform($([System.Runtime.InteropServices.OSPlatform]::Linux)))' == 'true' AND '$(Configuration)' == 'Debug' AND '$(PackageRuntime)' == 'linux-arm64'">
+    <DefineConstants>OS_LINUX;ARM64;DEBUG;TRACE</DefineConstants>
   </PropertyGroup>
 </Project>
